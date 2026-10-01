@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gagan Khandelwal - MERN Stack Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#11142b;--bg2:#181c3a;--ink:#eef0ff;--mute:#a4a9cf;--mint:#7ef0c9;--vio:#9b8cff;--line:rgba(155,140,255,.22)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;overflow-x:hidden}
+h1,h2,h3{font-family:'Sora',system-ui,sans-serif;line-height:1.15}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:.9rem 6vw;background:rgba(17,20,43,.8);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .logo{font-family:'Sora';font-weight:800;font-size:1.1rem}
+nav ul{display:flex;gap:1.8rem;list-style:none}
+nav ul a{color:var(--mute);font-size:.95rem;transition:color .2s}
+nav ul a:hover{color:var(--mint)}
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--mint),var(--vio));z-index:60}
+section{padding:6.5rem 6vw 3rem;max-width:1150px;margin:auto}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:2.2rem;font-weight:800}
+/* hero */
+#home{min-height:100vh;display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:center;padding-top:7rem}
+.hi{color:var(--mint);font-weight:500;margin-bottom:.8rem}
+h1{font-size:clamp(2.6rem,6.5vw,4.6rem);font-weight:800;letter-spacing:-1.5px;margin-bottom:1rem}
+.role{font-family:'Sora';font-size:clamp(1.1rem,2.4vw,1.5rem);color:var(--vio);min-height:2.2em;margin-bottom:1.2rem}
+.role::after{content:'|';margin-left:2px;animation:blink 1s steps(1) infinite;color:var(--mint)}
+.lead{color:var(--mute);max-width:52ch;margin-bottom:2rem}
+.btns{display:flex;flex-wrap:wrap;gap:.9rem}
+.btn{padding:.85rem 1.7rem;border-radius:12px;font-weight:600;border:1.5px solid var(--line);transition:transform .2s,background .2s,border-color .2s}
+.btn:hover{transform:translateY(-3px);border-color:var(--mint)}
+.btn.main{background:var(--mint);color:#0d1126;border-color:var(--mint)}
+.btn.main:hover{background:#a6f7dd}
+.links{display:flex;gap:1.4rem;margin-top:1.6rem;color:var(--mute)}
+.links a:hover{color:var(--mint)}
+.photo{position:relative;width:min(320px,80vw);aspect-ratio:1;margin:auto}
+.photo .ring{position:absolute;inset:-14px;border-radius:50%;border:2px dashed var(--vio);animation:spin 24s linear infinite}
+.photo .ring::after{content:'';position:absolute;top:8%;left:12%;width:14px;height:14px;border-radius:50%;background:var(--mint);box-shadow:0 0 16px var(--mint)}
+.photo .frame{position:absolute;inset:0;border-radius:42% 58% 55% 45%/50% 45% 55% 50%;overflow:hidden;background:linear-gradient(140deg,var(--vio),var(--mint));animation:morph 9s ease-in-out infinite;display:grid;place-items:center}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo .initials{font-family:'Sora';font-weight:800;font-size:5rem;color:#0d1126}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes blink{50%{opacity:0}}
+@keyframes morph{50%{border-radius:55% 45% 42% 58%/45% 55% 45% 55%}}
+/* about */
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:2.5rem}
+.about p{color:var(--mute);margin-bottom:1.2rem;max-width:62ch}
+.panel{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:1.8rem}
+.panel h3{font-size:1.05rem;margin-bottom:.5rem;color:var(--mint)}
+.panel p{margin-bottom:1.2rem;font-size:.97rem}
+.stats{display:flex;gap:2rem;margin-top:.5rem}
+.stats b{font-family:'Sora';font-size:2rem;color:var(--ink);display:block}
+.stats span{color:var(--mute);font-size:.85rem}
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem}
+.skills .panel h3{margin-bottom:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{padding:.35rem .9rem;border-radius:999px;background:rgba(155,140,255,.14);border:1px solid var(--line);font-size:.9rem;transition:background .2s,color .2s}
+.chip:hover{background:var(--mint);color:#0d1126}
+/* timeline */
+.tl{border-left:2px solid var(--vio);padding-left:2rem;position:relative}
+.tl::before{content:'';position:absolute;left:-8px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 6px rgba(126,240,201,.18);animation:pulse 2.4s ease-out infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 12px rgba(126,240,201,0)}}
+.tl h3{font-size:1.4rem}
+.tl .date{color:var(--vio);margin:.2rem 0 1rem}
+.tl li{color:var(--mute);margin:.45rem 0 .45rem 1.1rem}
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem}
+.proj{transition:transform .25s,border-color .25s}
+.proj:hover{transform:translateY(-6px);border-color:var(--mint)}
+.proj h3{font-size:1.35rem;color:var(--ink);margin-bottom:.8rem}
+.proj ul{margin:0 0 1.2rem 1.1rem;color:var(--mute);font-size:.97rem}
+.proj li{margin:.3rem 0}
+.proj .desc{color:var(--mute);margin-bottom:.8rem;font-size:.97rem}
+/* contact */
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem}
+.contact .panel{transition:transform .25s,border-color .25s}
+.contact .panel:hover{transform:translateY(-5px);border-color:var(--mint)}
+.contact a,.contact p{color:var(--mute);word-break:break-all}
+.contact a:hover{color:var(--mint)}
+footer{text-align:center;color:var(--mute);padding:3rem 1rem;font-size:.9rem}
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.rv.on{opacity:1;transform:none}
+@media(max-width:800px){
+nav ul{gap:.9rem}nav ul a{font-size:.8rem}nav .logo{display:none}nav{justify-content:center}
+#home,.about{grid-template-columns:1fr}
+.photo{order:-1;width:min(240px,70vw)}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="progress" id="bar"></div>
+<nav>
+<a href="#home" class="logo">Gagan K.</a>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<section id="home">
+<div>
+<p class="hi">Hi, I'm</p>
+<h1>Gagan Khandelwal</h1>
+<p class="role" id="role"></p>
+<p class="lead">Recent B.Tech graduate in AI &amp; Data Science and aspiring Software Developer with hands-on MERN stack experience. I build REST APIs, secure authentication and responsive React apps. Open to remote, hybrid and WFH roles.</p>
+<div class="btns">
+<a href="Gagan_Resume.pdf" download class="btn main">Download Resume</a>
+<a href="#projects" class="btn">View Projects</a>
+<a href="#contact" class="btn">Get in Touch</a>
+</div>
+<div class="links">
+<a href="https://github.com/gagan200345" target="_blank" rel="noopener">GitHub</a>
+<a href="https://www.linkedin.com/in/gagan-khandelwal-098748256/" target="_blank" rel="noopener">LinkedIn</a>
+</div>
+</div>
+<div class="photo">
+<div class="ring"></div>
+<div class="frame">
+<span class="initials">GK</span>
+<img src="Gagan Khandelwal.png" alt="Gagan Khandelwal" style="position:absolute;inset:0;object-position:50% 15%" onerror="this.remove()">
+</div>
+</div>
+</section>
+
+<section id="about">
+<h2 class="rv">About me</h2>
+<div class="about rv">
+<div>
+<p>I'm a recent B.Tech graduate (2022-2026) in Artificial Intelligence &amp; Data Science from Rajasthan Technical University (RTU). I'm an effective problem solver with a solid grounding in software engineering principles, Agile systems and version control.</p>
+<p>I've built full-stack applications with the MERN stack, implemented secure authentication and managed database operations. I care about smooth user experiences and efficient backend solutions, and I'm looking for a full-time Software Development or Software Testing role.</p>
+</div>
+<div class="panel">
+<h3>Education</h3>
+<p><strong>B.Tech, Artificial Intelligence &amp; Data Science</strong><br>Rajasthan Technical University (RTU), 2022 - 2026<br>Senior Secondary (XII), RBSE, 2021 - 2022<br>Secondary (X), RBSE, 2019 - 2020</p>
+<h3>Achievements</h3>
+<div class="stats">
+<div><b data-n="60">0</b><span>DSA problems on GFG</span></div>
+<div><b data-n="50">0</b><span>SQL problems on LeetCode</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="skills">
+<h2 class="rv">Skills</h2>
+<div class="skills">
+<div class="panel rv"><h3>Programming</h3><div class="chips"><span class="chip">C++</span><span class="chip">JavaScript</span><span class="chip">SQL</span></div></div>
+<div class="panel rv"><h3>Web</h3><div class="chips"><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">Responsive design</span></div></div>
+<div class="panel rv"><h3>Frameworks &amp; libraries</h3><div class="chips"><span class="chip">React.js</span><span class="chip">Node.js</span><span class="chip">Express.js</span><span class="chip">Bootstrap</span><span class="chip">JWT</span></div></div>
+<div class="panel rv"><h3>Testing &amp; debugging</h3><div class="chips"><span class="chip">API testing</span><span class="chip">Postman</span><span class="chip">Software testing fundamentals</span></div></div>
+<div class="panel rv"><h3>Databases</h3><div class="chips"><span class="chip">MongoDB</span><span class="chip">MySQL</span></div></div>
+<div class="panel rv"><h3>Tools</h3><div class="chips"><span class="chip">Git &amp; GitHub</span><span class="chip">VS Code</span><span class="chip">Postman</span><span class="chip">MongoDB Atlas</span></div></div>
+<div class="panel rv"><h3>Core concepts</h3><div class="chips"><span class="chip">DSA</span><span class="chip">OOPs</span><span class="chip">Operating Systems</span></div></div>
+</div>
+</section>
+
+<section id="experience">
+<h2 class="rv">Experience</h2>
+<div class="tl rv">
+<h3>MERN Stack Developer Intern</h3>
+<p class="date">Kaizen Technocraft Pvt. Ltd, Jaipur, July 2024 - Aug 2024</p>
+<ul>
+<li>Developed full-stack apps with MongoDB, Express.js, React.js and Node.js, with reusable React components</li>
+<li>Built and integrated REST APIs for smooth data flow between frontend and backend</li>
+<li>Designed MongoDB schemas and managed database operations</li>
+<li>Implemented JWT authentication and authorization, and configured CORS policies</li>
+<li>Tested and debugged REST APIs with Postman to verify functionality and fix defects</li>
+<li>Maintained code quality and version control with Git and GitHub</li>
+</ul>
+</div>
+</section>
+
+<section id="projects">
+<h2 class="rv">Projects</h2>
+<div class="projects">
+<div class="panel proj rv">
+<h3>ShopSphere - Full stack e-commerce platform</h3>
+<p class="desc">Flexible e-commerce app with secure authentication, product catalog, shopping cart and order management.</p>
+<ul>
+<li>JWT authentication and full CRUD for products and orders</li>
+<li>Zod schema validation and bcrypt password encryption</li>
+<li>Error-handling middleware and RESTful API architecture</li>
+<li>Responsive React frontend with optimized component lifecycle</li>
+</ul>
+<div class="chips"><span class="chip">React.js</span><span class="chip">Node.js</span><span class="chip">Express.js</span><span class="chip">MongoDB</span><span class="chip">JWT</span><span class="chip">Zod</span><span class="chip">Bcrypt</span></div>
+</div>
+<div class="panel proj rv">
+<h3>Readify - Online bookstore</h3>
+<p class="desc">Book search, user login/signup and shopping cart built with the MERN stack.</p>
+<ul>
+<li>Responsive design for easy book search on every device</li>
+<li>Book search with secure login/signup</li>
+<li>Shopping cart for seamless book purchasing</li>
+<li>Reusable React components and REST APIs for real-time book data</li>
+</ul>
+<div class="chips"><span class="chip">React.js</span><span class="chip">Node.js</span><span class="chip">Express.js</span><span class="chip">MongoDB</span></div>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<h2 class="rv">Let's connect</h2>
+<div class="contact">
+<div class="panel rv"><h3>Email</h3><a href="mailto:gaagankhandelwal@gmail.com">gaagankhandelwal@gmail.com</a></div>
+<div class="panel rv"><h3>LinkedIn</h3><a href="https://www.linkedin.com/in/gagan-khandelwal-098748256/" target="_blank" rel="noopener">linkedin.com/in/Gagankhandelwal</a></div>
+<div class="panel rv"><h3>GitHub</h3><a href="https://github.com/gagan200345" target="_blank" rel="noopener">github.com/gagan200345</a></div>
+<div class="panel rv"><h3>Phone</h3><a href="tel:+919079059377">+91 90790 59377</a></div>
+<div class="panel rv"><h3>Location</h3><p>Jaipur, Rajasthan</p></div>
+</div>
+</section>
+
+<footer>&copy; 2026 Gagan Khandelwal</footer>
+
+<script>
+// typing roles
+const roles=['MERN Stack Developer','AI & Data Science Student','Full-Stack Problem Solver'];
+const el=document.getElementById('role');let r=0,c=0,del=false;
+function type(){
+const w=roles[r];
+el.textContent=w.slice(0,c);
+if(!del&&c<w.length){c++;setTimeout(type,70)}
+else if(!del){del=true;setTimeout(type,1400)}
+else if(c>0){c--;setTimeout(type,35)}
+else{del=false;r=(r+1)%roles.length;setTimeout(type,300)}
+}
+type();
+// reveal + counters
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+if(!e.isIntersecting)return;
+e.target.classList.add('on');
+e.target.querySelectorAll('[data-n]').forEach(n=>{
+const t=+n.dataset.n;let v=0;
+const s=setInterval(()=>{v+=Math.ceil(t/30);if(v>=t){v=t;clearInterval(s)}n.textContent=v+'+'},35);
+});
+io.unobserve(e.target);
+}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(x=>io.observe(x));
+// scroll progress
+addEventListener('scroll',()=>{
+const h=document.documentElement;
+document.getElementById('bar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+});
+</script>
+</body>
+</html>
